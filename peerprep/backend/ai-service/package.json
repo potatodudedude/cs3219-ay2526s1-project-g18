@@ -1,7 +1,8 @@
 {
   "name": "ai-service",
   "version": "1.0.0",
-  "main": "test.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
@@ -14,7 +15,8 @@
   "dependencies": {
     "@google/genai": "^1.29.0",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
