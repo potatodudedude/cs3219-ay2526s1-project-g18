@@ -83,7 +83,7 @@ export default function DropdownMenu({
           {selectedTopic || placeholder}
         </span>
         <ChevronDown 
-          className={`w-6 h-6 text-gray-600 transition-transform duration-200 
+          className={`w-6 h-6 text-gray-600 transition-transform duration-200
                      ${isOpen ? 'rotate-180' : 'rotate-0'}
                      group-hover:text-text-field`}
         />
@@ -93,10 +93,10 @@ export default function DropdownMenu({
         <div 
           className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl 
                      border border-gray-100 overflow-hidden z-50
-                     animate-in fade-in slide-in-from-top-2 duration-200"
+                     animate-in fade-in slide-in-from-top-2 duration-200 h-35"
           role="listbox"
         >
-          <div className="max-h-60 overflow-y-auto">
+          <div className="max-h-35 overflow-y-auto">
             {topics.map((topic, index) => (
               <button
                 key={index}

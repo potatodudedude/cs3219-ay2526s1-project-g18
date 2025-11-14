@@ -124,8 +124,8 @@ function AttemptHistoryContent() {
 
     
     return (
-    <div className="bg-dark-blue-bg w-full h-screen flex flex-col items-center">
-        <div className="flex items-start w-full justify-between m-5 p-5">
+    <div className="bg-dark-blue-bg w-full h-screen flex flex-col items-center overflow-clip">
+        <div className="flex items-start w-full justify-between m-5 p-5 h-1/6">
             <div className="flex-col m-5 mb-0">
                 <div className="flex items-start mb-5">
                     <span className="font-poppins text-white text-5xl font-bold">
@@ -138,7 +138,7 @@ function AttemptHistoryContent() {
             </div>
             <div className="flex items-end">
                 <button
-                    className="bg-black-box text-white p-4 rounded-3xl font-poppins text-2xl hover:bg-darkest-box"
+                    className="bg-blue-button text-white p-4 rounded-3xl font-poppins text-2xl hover:bg-blue-button-hover"
                     onClick={() => { router.push('/attemptHistoryOverview') }}
                 >
                     Back to Attempts
@@ -146,47 +146,47 @@ function AttemptHistoryContent() {
             </div>
         </div>
 
-        <div className="flex flex-row gap-10 h-full w-full p-6">
-            
+        <div className="flex flex-row gap-10 h-5/6 w-full p-2">
             {/* Left: question + code (2/3 width) */}
-            <div className="flex flex-col w-2/3 h-full gap-6">
-            <p className="font-poppins text-2xl">Question details</p>
+            <div className="flex flex-col w-2/3 h-full gap-6 p-6">
                 {/* Question area - take top half of left column */}
-                <div className="rounded-4xl bg-light-box flex flex-col w-full h-1/2 p-10 overflow-y-auto">
-                    <p className="font-poppins text-text-main text-3xl font-bold ml-4">
-                        {question?.title ?? "Loading question..."}
-                    </p>
+                <div className="rounded-4xl bg-light-box flex flex-col w-full h-2/5 p-4 overflow-y-auto">
+                    <div className="flex flex-row items-center justify-between gap-8">
+                        <p className="font-poppins text-text-main text-3xl font-bold ml-4">
+                            {question?.title ?? "Loading question..."}
+                        </p>
 
-                    <div className="my-4 flex flex-row bg-black-box px-4 w-fit py-3 rounded-4xl gap-4 items-center">
-                        <button
-                            className={
-                                (question?.difficulty === "EASY"
-                                    ? "bg-green-button-hover"
-                                    : question?.difficulty === "MEDIUM"
-                                        ? "bg-yellow-button-hover"
-                                        : question?.difficulty === "HARD"
-                                            ? "bg-red-button-hover"
-                                            : "bg-gray-300 text-black") +
-                                " px-4 py-1.5 rounded-xl font-poppins"
-                            }
-                        >
-                            {question?.difficulty ?? "Easy"}
-                        </button>
+                        <div className="flex flex-row bg-black-box px-4 w-fit py-3 rounded-4xl gap-4 items-center">
+                            <button
+                                className={
+                                    (question?.difficulty === "EASY"
+                                        ? "bg-green-button-hover"
+                                        : question?.difficulty === "MEDIUM"
+                                            ? "bg-yellow-button-hover"
+                                            : question?.difficulty === "HARD"
+                                                ? "bg-red-button-hover"
+                                                : "bg-gray-300 text-black") +
+                                    " px-4 py-1.5 rounded-xl font-poppins"
+                                }
+                            >
+                                {question?.difficulty ?? "Easy"}
+                            </button>
 
-                        <div className="bg-light-box w-1 h-10 rounded-4xl"></div>
+                            <div className="bg-light-box w-1 h-10 rounded-4xl"></div>
 
-                        <h1 className="font-poppins text-logo-purple font-bold">
-                            {(question?.topics ?? []).join(" ")}
-                        </h1>
+                            <h1 className="font-poppins text-logo-purple font-bold overflow-y-auto">
+                                {(question?.topics ?? []).join(" ")}
+                            </h1>
+                        </div>
                     </div>
 
-                    <p className="font-poppins text-lg ml-3">{question?.description ?? "Loading description..."}</p>
+                    <p className="font-poppins text-lg mt-4 ml-3 text-white">{question?.description ?? "Loading description..."}</p>
                 </div>
 
                 {/* Shared code area - take bottom half of left column */}
-                <div className="flex flex-col w-full h-1/2 gap-4">
+                <div className="flex flex-col w-full h-3/5 gap-4 text-white">
                     <p className="font-poppins text-2xl">Shared Code</p>
-                    <div className="bg-darkest-box flex flex-col h-full w-full p-6 overflow-y-auto rounded-2xl">
+                    <div className="bg-darkest-box flex flex-col h-4/5 w-full p-6 overflow-y-auto rounded-2xl">
                         <pre className="whitespace-pre-wrap font-mono text-sm">{codeAttemptString}</pre>
                     </div>
                 </div>
@@ -194,7 +194,7 @@ function AttemptHistoryContent() {
 
 
             {/* Right: AI feedback (1/3 width) */}
-            <div className="w-1/3 h-full">
+            <div className="w-1/3 h-[77vh]">
                 <div className="h-full rounded-4xl p-4 overflow-y-auto">
                     <AiFeedback codeAttempt={codeAttemptString} question={question?.description ?? "Loading description..."} />
                 </div>

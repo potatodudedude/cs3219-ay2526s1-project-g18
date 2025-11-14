@@ -78,7 +78,7 @@ export default function MatchingWidget() {
                 />
                 
                 <button 
-                    className="bg-gradient-to-r from-purple-button to-dg-button p-4 w-full rounded-xl text-white font-poppins text-5xl font-medium hover:border-logo-purple hover:border-2 hover:bg-blue-button-hover"style={{ marginTop: isDropdownOpen ? '250px' : '0' }}
+                    className="bg-gradient-to-r from-purple-button to-dg-button p-4 w-full rounded-xl text-white font-poppins text-4xl font-medium hover:border-logo-purple hover:border-2 hover:bg-blue-button-hover"style={{ marginTop: isDropdownOpen ? '130px' : '0' }}
                     onClick={handleFindMatchClick}
                 >
                     Find Match

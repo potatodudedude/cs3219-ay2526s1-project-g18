@@ -24,14 +24,14 @@ export default function QuestionHistoryWidget({ totalAttempts, successfulAttempt
             </p>
             <div className="w-1/2 bg-dark-box rounded-3xl border-2 border-logo-purple flex flex-col justify-center items-center p-6 m-4 gap-3">
                 <div className="flex flex-row gap-2 items-center">
-                    <FileQuestionMark className="w-15 h-15 text-logo-purple stroke-2"/>
+                    <FileQuestionMark className="w-10 h-10 text-logo-purple stroke-2"/>
                     <p className="font-poppins text-logo-purple text-5xl"> {totalAttempts} </p>
                 </div>
                 <p className="font-poppins text-logo-purple text-2xl">Questions attempted</p>
             </div>
             <div className="w-1/2 bg-green-box rounded-3xl border-2 border-logo-green flex flex-col justify-center items-center p-6 m-4 gap-3">
                 <div className="flex flex-row gap-2 items-center">
-                    <CircleCheck className="w-15 h-15 text-logo-green stroke-2"/>
+                    <CircleCheck className="w-10 h-10 text-logo-green stroke-2"/>
                     <p className="font-poppins text-logo-green text-5xl"> {successfulAttempts} </p>
                 </div>
                 <p className="font-poppins text-logo-green text-2xl">Successfully solved</p>

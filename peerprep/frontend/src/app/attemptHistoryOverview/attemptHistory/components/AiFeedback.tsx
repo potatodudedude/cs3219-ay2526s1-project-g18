@@ -44,8 +44,9 @@ export default function AiFeedback({codeAttempt, question}: {codeAttempt: string
   const asksLeft = useRef<number>(ASKS_LIMIT);
 
   useEffect(() => {
+    if (!codeAttempt || !question) return;
     sendInitFeedback(codeAttempt, question);
-  }, []);
+  }, [codeAttempt, question]);
 
   // AI generated UI scroll
   // auto-scroll when messages update 
@@ -254,14 +255,14 @@ export default function AiFeedback({codeAttempt, question}: {codeAttempt: string
 
   return (
     <div className="flex flex-col w-full h-full">
-      <div className="pt-4 pb-4 px-4 bg-light-box rounded-tr-3xl flex items-center gap-2">
+      <div className="pt-4 pb-4 px-4 bg-light-box rounded-t-3xl flex items-center gap-2">
         <p className="text-white flex items-center gap-2 font-poppins text-xl font-bold">
           AI Feedback
           <Sparkles className="text-white w-4 h-4" />
         </p>
       </div>
 
-      <div className="text-white flex-1 px-4 py-4 flex flex-col justify-between overflow-hidden relative bg-dark-box">
+      <div className="text-white flex-1 px-4 py-4 flex flex-col justify-between overflow-hidden relative bg-dark-box rounded-b-3xl">
         <div className="overflow-y-auto pr-4 pb-4" style={{ maxHeight: "60vh" }}>
           {initialFeedback ? (
             <div className="space-y-4">
@@ -329,7 +330,7 @@ export default function AiFeedback({codeAttempt, question}: {codeAttempt: string
             </div>
           ) : ( error ? (
             <div className="text-text-error italic flex justify-end">
-              Error generating feedback: {error}
+              Error generating feedback.
               <Repeat className="h-12 w-12" onClick={() => sendInitFeedback(codeAttempt, question)}/>
             </div>
           ) :
@@ -341,12 +342,12 @@ export default function AiFeedback({codeAttempt, question}: {codeAttempt: string
 
         {/* Follow-up input */}
         {initialFeedback && 
-        (<div className="mt-4 shrink-0 w-full bg-black-box p-4 rounded-xl relative">
+        (<div className="mt-1 shrink-0 w-full bg-black-box p-4 rounded-xl relative">
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full text-white px-4 py-2 resize-none h-28 border-none outline-none font-poppins"
+            className="w-full text-white px-4 py-2 resize-none h-20 border-none outline-none font-poppins"
             placeholder={
               initialFeedback ? "Type a follow-up question..." : "Waiting for initial feedback..."
             }

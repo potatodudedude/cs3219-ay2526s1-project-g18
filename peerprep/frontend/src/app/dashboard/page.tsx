@@ -79,10 +79,10 @@ export default function DashboardPage() {
       <div className="flex items-start justify-between">
         <div className="flex-col">
           <div className="flex items-start mb-5">
-            <span className="font-inter text-logo-purple text-8xl font-bold">Peer</span>
-            <span className="font-inter text-logo-green text-8xl font-bold">Prep</span>
+            <span className="font-inter text-logo-purple text-6xl font-bold">Peer</span>
+            <span className="font-inter text-logo-green text-6xl font-bold">Prep</span>
           </div>
-          <p className="font-poppins text-text-main text-6xl font-bold">
+          <p className="font-poppins text-text-main text-4xl font-bold">
             Welcome back, {userName}!
           </p>
         </div>

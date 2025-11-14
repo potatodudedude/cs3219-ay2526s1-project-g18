@@ -118,7 +118,7 @@ export default function AttemptHistoryOverviewPage() {
         </p>
         </div>
         <div className="flex items-end"> 
-        <button className="bg-black-box text-white p-4 rounded-3xl font-poppins text-2xl hover:bg-darkest-box"
+        <button className="bg-blue-button text-white p-4 rounded-3xl font-poppins text-2xl hover:bg-blue-button-hover"
             onClick={() => { router.push('/dashboard')}}>
             Back to Dashboard
         </button>
