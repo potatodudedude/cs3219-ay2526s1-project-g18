@@ -266,8 +266,9 @@ export async function handleNoDifficultyQueueDifficulty(idKey1, idKey2) {
         const difficulty1 = parseInt(getRawDifficultyString(specificCriteria1));
         const difficulty2 = parseInt(getRawDifficultyString(specificCriteria2));
         const difficulty = Math.min(difficulty1, difficulty2);
+        const difficulty_string = difficulty.toString()
 
-        return difficulty;
+        return difficulty_string;
 
     } catch (err) {
         console.error("Error handling no difficulty queue difficulty:", err);
